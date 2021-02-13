@@ -1,0 +1,13 @@
+<p>asset works! {{nasa_id}}</p>
+
+<div *ngIf='video_url !== ""'>
+    <video  autoplay controls>
+        <source src="{{video_url}}" type="video/mp4">
+    </video>
+</div>
+
+<div *ngIf='img_url !== "" && video_url === ""'>
+    <img   src="{{img_url}}" alt="{{nasa_id}}"/> 
+</div>
+ 
+<a [routerLink]="['/search']">Chercher autre chose</a> 

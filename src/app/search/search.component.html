@@ -1,0 +1,22 @@
+<div style="text-align:center">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label class="center-block">Entrer un nom d'objet céleste:
+            <input class="form-control" formControlName="name">
+          </label>
+        </div>
+        <button type="submit">Rechercher</button>
+  </form>
+        <h1>{{name}}</h1>
+          <ul *ngFor="let result of nasaItems.collection.items">
+            <!-- <div (click) = handleClick({{nasa_id.value}})> -->
+              <li *ngFor="let data of result.data;  first as isFirst">
+                  <h1 *ngIf="isFirst">{{data.title}}</h1>
+                  <a id="data.nasa_id" [routerLink]="['/asset',data.nasa_id]">{{data.nasa_id}}</a>
+              </li>
+              <li *ngFor="let link of result.links;  first as isFirst">
+                <h1 *ngIf="isFirst">{{link.title}}</h1><img src={{link.href}}/>
+              </li>
+            <!-- </div> -->
+          </ul>
+</div>
