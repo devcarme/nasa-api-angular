@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
-import { NasaObject } from "../models/nasaObject";
+import { NasaObject } from "./nasaObject";
 import { Observable } from "rxjs";
 
 @Injectable({

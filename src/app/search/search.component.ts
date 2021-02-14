@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SearchObject } from './searchObject.service'
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { NasaObject } from '../models/nasaObject';
+import { NasaObject } from './nasaObject';
+import { NasaItem } from './nasaItem';
 
 @Component({
   selector: 'app-search',
@@ -11,38 +12,35 @@ import { NasaObject } from '../models/nasaObject';
 })
 export class SearchComponent {
   searchForm: FormGroup;
-  assetForm: FormGroup;
   name: string;
+  nasa_id: string;
   
   public nasaItems: any;
+  public nasaItemsClean: NasaItem[];
   
   constructor(private searchObject: SearchObject, private fb: FormBuilder, private router: Router) {
     this.name = "";
+    this.nasa_id = "";
     this.nasaItems = [];
+    this.nasaItemsClean = [];
     this.searchForm = this.fb.group({
        name: ['', Validators.required ]
-    });
-    this.assetForm = this.fb.group({
-       nasa_id: ['', Validators.required ]
     });
   }
 
    onSubmit(){
-    console.log(this.searchForm.value);
-    this.name=this.searchForm.value.name;
-    this.getNasaObjects();
-  }
-
-  onSubmitAsset(){
-    console.log(this.assetForm.value)
-    this.router.navigate(['/asset', this.assetForm.value.nasa_id ]);
-  }
-  
-  getNasaObjects() {
-    this.searchObject.getAppareilsFromServer(this.name).subscribe((response) => {
-      this.nasaItems = response;
-      console.log("NASA API response", response);
-      console.log(this.nasaItems.collection.items[0].links[0].href);
-    });
-  }
+      this.name=this.searchForm.value.name;
+      this.searchObject.getAppareilsFromServer(this.name).subscribe((response) => {
+        this.nasaItems = response;
+        for (let i = 0; i < this.nasaItems.collection.items.length; i++){
+          this.nasaItemsClean[i] = new NasaItem();
+          this.nasaItemsClean[i].nasa_id=this.nasaItems.collection.items[i].data[0].nasa_id;
+          this.nasaItemsClean[i].href=this.nasaItems.collection.items[i].links[0].href;
+          this.nasaItemsClean[i].title=this.nasaItems.collection.items[i].data[0].title;
+        }
+        console.log("NASA API response", response);
+        console.log("Clean items", this.nasaItemsClean);
+        //console.log(this.nasaItems.collection.items[0].links[0].href);
+      });
+    }
 }

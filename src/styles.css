@@ -1,1 +1,140 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: nasalization;
+    src: url(./assets/fonts/nasalization-rg.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: nasalization;
+}
+
+.search{
+    background: url(./assets/images/astronaut.jpg) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+.searcher{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba(11, 61, 145,0.9);
+    max-width: 475px;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.searcher .input{
+    width: 88%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.search-btn{
+    width: 10%;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.search-btn .material-icons{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:  rgba(252, 61, 33);
+    font-size: 50px;
+}
+
+.list-item{
+    position: fixed;
+    max-width: 750px;
+    top: 35%;
+    left: 50%;
+    overflow-y: auto;
+    height: 2000px;
+    transform: translate(-50%);
+}
+
+.btn-item{
+    width: 100%;
+    height: 200px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background: rgba(11, 61, 145);
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.img-thumb{
+    height: 90%;
+    width: auto;
+}
+
+.item-title{
+    font: bold;
+    color:  rgba(252, 61, 33);
+}
+
+a{
+    text-decoration: inherit;
+}
+
+.orig{
+    width: 100%;
+    min-width: 100%;
+    height: 90%;
+    max-height: 90%;
+    overflow: hidden;
+} 
+
+.orig img, video{
+    position: absolute;
+    transform: translate(-50%);
+    top: 5%;
+    left: 50%;
+    height: 90%;
+    width: auto;
+}
+
+.btn-other{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    margin: 15px;
+    width: 50px;
+    height: 35px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    background: rgba(11, 61, 145);
+    color:  rgba(252, 61, 33);
+}
+
+.btn-other:hover {
+    margin-top: 1em;
+}
+
+.search-btn:hover {
+    margin-bottom: 0.5em;
+}
+
+body{
+    background-color: black;
+}

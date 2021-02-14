@@ -1,22 +1,20 @@
-<div style="text-align:center">
+<div class="search">
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label class="center-block">Entrer un nom d'objet céleste:
-            <input class="form-control" formControlName="name">
-          </label>
-        </div>
-        <button type="submit">Rechercher</button>
+    <div class="searcher">
+        <input class="input" formControlName="name" placeholder="Rechercher une vidéo ou une image de la NASA...">
+        <button class="search-btn" type="submit">
+          <span class="material-icons">search</span>
+        </button>
+    </div>     
   </form>
-        <h1>{{name}}</h1>
-          <ul *ngFor="let result of nasaItems.collection.items">
-            <!-- <div (click) = handleClick({{nasa_id.value}})> -->
-              <li *ngFor="let data of result.data;  first as isFirst">
-                  <h1 *ngIf="isFirst">{{data.title}}</h1>
-                  <a id="data.nasa_id" [routerLink]="['/asset',data.nasa_id]">{{data.nasa_id}}</a>
-              </li>
-              <li *ngFor="let link of result.links;  first as isFirst">
-                <h1 *ngIf="isFirst">{{link.title}}</h1><img src={{link.href}}/>
-              </li>
-            <!-- </div> -->
-          </ul>
+  <div class="list-item">
+    <div class="item" *ngFor="let item of nasaItemsClean">
+        <a id="item.nasa_id" [routerLink]="['/asset',item.nasa_id]">
+          <button class="btn-item">
+            <img class="img-thumb" src={{item.href}} alt={{item.href}}/>
+            <h1 class="item-title">{{item.title}}</h1>
+          </button>
+        </a>
+    </div>
+  </div>       
 </div>

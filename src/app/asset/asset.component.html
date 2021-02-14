@@ -1,13 +1,12 @@
-<p>asset works! {{nasa_id}}</p>
+<div class="asset">
+    <div class="orig" *ngIf='video_url !== ""'>
+        <video  autoplay controls preload="none">
+            <source src="{{video_url}}" type="video/mp4">
+        </video>
+    </div>
 
-<div *ngIf='video_url !== ""'>
-    <video  autoplay controls>
-        <source src="{{video_url}}" type="video/mp4">
-    </video>
+    <div *ngIf='img_url !== "" && video_url === ""' class="orig">
+        <img  class="img-orig" src="{{img_url}}" alt="{{nasa_id}}"/> 
+    </div>
+    <a [routerLink]="['/search']"><button class="btn-other"><span class="material-icons">keyboard_return</span></button></a> 
 </div>
-
-<div *ngIf='img_url !== "" && video_url === ""'>
-    <img   src="{{img_url}}" alt="{{nasa_id}}"/> 
-</div>
- 
-<a [routerLink]="['/search']">Chercher autre chose</a> 
