@@ -1,0 +1,162 @@
+
+.search{
+    background: url(../../assets/images/astronaut.jpg) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+.searcher{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba(11, 61, 145,0.9);
+    max-width: 475px;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.searcher .input{
+    width: 88%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.search-btn{
+    width: 10%;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.search-btn .material-icons{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:  rgba(252, 61, 33);
+    font-size: 50px;
+}
+
+.list-item{
+    position: fixed;
+    max-width: 750px;
+    width: 100%;
+    overflow-y:auto;
+    overflow-x:hidden;
+    top:25%;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%);
+}
+
+.btn-item{
+    width: 100%;
+    height: 150px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: rgba(11, 61, 145);
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+.img-thumb{
+    height: auto;
+    width: auto;
+    max-width: 20%;
+    max-height: 98%;
+    margin-right: 1em;
+}
+
+.item-title{
+    font: bold;
+    color:  rgba(252, 61, 33);
+    text-align: center;
+}
+
+h1{
+    text-decoration: inherit;
+}
+
+/* unvisited link */
+a:link {
+    color: rgba(252, 61, 33);
+  }
+  
+  /* visited link */
+  a:visited {
+    color: rgba(252, 61, 33);
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: white;
+  }
+  
+  /* selected link */
+  a:active {
+    color: white;
+  }
+
+.search-btn:hover {
+    margin-bottom: 0.5em;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+  
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: rgba(252, 61, 33);
+    border-radius: 25px;
+}
+
+@media only screen and (max-width: 700px) {
+    h1{
+        font-size: 1.5em;
+    }
+    .btn-item{
+        height: 125px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    h1{
+        font-size: 1.4em;
+    }
+    .btn-item{
+        height: 125px;
+    }
+    input,
+    input::-webkit-input-placeholder {
+        font-size: 10px;
+        line-height: 3;
+    }
+
+}
+
+@media only screen and (max-width: 360px) {
+    h1{
+        font-size: 1.2em;
+    }
+    .btn-item{
+        height: 115px;
+    }
+}
